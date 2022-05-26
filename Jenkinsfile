@@ -5,7 +5,9 @@ pipeline {
         stage('Dependencies') {
             steps {
                 echo 'Installing npm'
+                sh '''
                 npm --version
+                '''
             }
         }
         stage('Build') {
