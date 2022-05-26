@@ -8,18 +8,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3 # Adds a step to checkout the repository code
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14
-          cache: 'npm'
-          cache-dependency-path: ./DotnetTemplate.Web/package-lock.json
-
       - name: Build the app
         run: dotnet build
 
       - name: Test the app
         run: dotnet test
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+          cache: 'npm'
+          cache-dependency-path: ./DotnetTemplate.Web/package-lock.json
+          
       - name: Build the TypeScript code
         working-directory: ./DotnetTemplate.Web
         run: npm run build
