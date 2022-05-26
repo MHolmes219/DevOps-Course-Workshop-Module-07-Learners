@@ -12,35 +12,30 @@ pipeline {
             }
             stages {
                 stage("dependencies") {
-                    dir("./DotnetTemplate.Web") {
-                        echo 'Installing npm'
-                        sh '''
-                        npm ci
-                        '''
+                    steps {
+                        dir('your-sub-directory') {
+                            sh "pwd"
+                            echo 'Installing npm'
+                            sh "npm ci"
+                        }
                     }
                 }
                stage("build") {
                    steps {
                        echo 'Build npm'
-                        sh '''
-                        npm run build
-                        '''
+                        sh "npm run build"
                    }
                }
                stage("line") {
                    steps {
                        echo 'Lint npm'
-                        sh '''
-                        npm run lint
-                        '''
+                        sh "npm run lint"
                    }
                }
                stage("test") {
                    steps {
                        echo 'Test npm'
-                        sh '''
-                        npm t
-                        '''
+                        sh "npm t"
                    }
                }
             }
@@ -53,17 +48,13 @@ pipeline {
                 stage('build') {
                     steps {
                         echo 'Building the app'
-                        sh '''
-                        dotnet build
-                        '''
+                        sh "dotnet build"
                     }
                 }
                 stage('test') {
                     steps {
                         echo 'Testing the app'
-                        sh '''
-                        dotnet test
-                        '''
+                        sh "dotnet test"
                     }
                 }
             }
