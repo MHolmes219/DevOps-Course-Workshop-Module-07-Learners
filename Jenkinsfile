@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         stage('Dependencies') {
-            agent {node:17-bullseye}
+            agent { 'node:17-bullseye' }
             steps {
                 npm ci
             }
