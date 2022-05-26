@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: 14
           cache: 'npm'
-          cache-dependency-path: ~/DotnetTemplate.Web/package-lock.json
+          cache-dependency-path: ./DotnetTemplate.Web/package-lock.json
 
       - name: test npm cache
         run: npm
