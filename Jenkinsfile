@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Dependencies') {
             steps {
-                npm ci
+                script {
+                    npm ci
+                }
             }
         }
         stage('Build') {
@@ -16,7 +18,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing the app'
-                sh 'dotnet test'
+                dotnet test
             }
         }
     }
