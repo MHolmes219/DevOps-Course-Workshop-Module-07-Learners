@@ -20,9 +20,6 @@ jobs:
           cache: 'npm'
           cache-dependency-path: ./DotnetTemplate.Web/package-lock.json
 
-      - name: test npm cache
-        run: npm
-
       - name: Build the TypeScript code
         working-directory: ./DotnetTemplate.Web
         run: npm run build
