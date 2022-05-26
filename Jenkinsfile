@@ -1,19 +1,22 @@
 pipeline {
-    agent any
+    agent none
 
     stages {
         stage('Dependencies') {
+            agent node:17-bullseye
             steps {
-                sh 'npm ci'
+                npm ci
             }
         }
         stage('Build') {
+            agent any
             steps {
                 echo 'Building the app'
-                sh 'dotnet build'
+                dotnet build
             }
         }
         stage('Test') {
+            agent any
             steps {
                 echo 'Testing the app'
                 sh 'dotnet test'
