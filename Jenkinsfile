@@ -1,8 +1,9 @@
 pipeline {
-    agent any
+    agent none
 
     stages {
         stage('Dependencies') {
+            agent { docker {'node:17-bullseye'} }
             steps {
                 echo 'Installing npm'
                 sh '''
