@@ -16,7 +16,7 @@ pipeline {
                         dir('DotnetTemplate.Web') {
                             sh "pwd"
                             echo 'Installing npm'
-                            sh "npm ci"
+                            sh "npm install"
                         }
                     }
                 }
