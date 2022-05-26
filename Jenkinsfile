@@ -13,7 +13,7 @@ pipeline {
             stages {
                 stage("dependencies") {
                     steps {
-                        dir('your-sub-directory') {
+                        dir('DotnetTemplate.Web') {
                             sh "pwd"
                             echo 'Installing npm'
                             sh "npm ci"
