@@ -1,8 +1,10 @@
 name: Continuous Integration
 on:
-  pull_request_review:
-    types:
-      - submitted
+  pull_request:
+    types: [opened, reopened]
+    branches:
+      - main
+      - releases/**
 
 jobs:
   build:
