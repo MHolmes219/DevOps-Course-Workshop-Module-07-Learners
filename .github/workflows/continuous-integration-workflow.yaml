@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-          working-directory: ./DotnetTemplate.Web
+          cache-dependency-path: ./DotnetTemplate.Web/package-lock.json
 
       - name: Build the app
         run: dotnet build
