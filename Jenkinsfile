@@ -13,12 +13,10 @@ pipeline {
             stages {
                 stage("dependencies") {
                     dir("./DotnetTemplate.Web") {
-                        steps {
-                            echo 'Installing npm'
-                            sh '''
-                            npm ci
-                            '''
-                        }
+                        echo 'Installing npm'
+                        sh '''
+                        npm ci
+                        '''
                     }
                 }
                stage("build") {
