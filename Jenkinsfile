@@ -20,24 +20,30 @@ pipeline {
                         }
                     }
                 }
-               stage("build") {
-                   steps {
-                       echo 'Build npm'
-                        sh "npm run build"
-                   }
-               }
-               stage("line") {
-                   steps {
-                       echo 'Lint npm'
-                        sh "npm run lint"
-                   }
-               }
-               stage("test") {
-                   steps {
-                       echo 'Test npm'
-                        sh "npm t"
-                   }
-               }
+                stage("build") {
+                    steps {
+                        dir('DotnetTemplate.Web') {
+                            echo 'Build npm'
+                            sh "npm run build"
+                        }
+                    }
+                }
+                stage("line") {
+                    steps {
+                        dir('DotnetTemplate.Web') {
+                            echo 'Lint npm'
+                            sh "npm run lint"
+                        }
+                    }
+                }
+                stage("test") {
+                    steps {
+                        dir('DotnetTemplate.Web') {
+                            echo 'Test npm'
+                            sh "npm t"
+                        }
+                    }
+                }
             }
         }
         stage('Build & test the .net app') {
