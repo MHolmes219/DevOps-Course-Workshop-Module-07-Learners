@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Install, build & test node') {
             agent {
-                docker "node:14-alpine"
+                docker "node:14-bullseye"
             }
             stages {
                 stage("dependencies") {
