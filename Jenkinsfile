@@ -28,7 +28,7 @@ pipeline {
                         }
                     }
                 }
-                stage("line") {
+                stage("lint") {
                     steps {
                         dir('DotnetTemplate.Web') {
                             echo 'Lint npm'
